@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exported Questions with Complete Solutions</title>
+  <style type="text/css">
+* {
+    box-sizing: border-box;
+}
+
+html {
+    lang: en;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+}
+
+.questions-container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.questions-container h1 {
+    color: #2c3e50;
+    border-bottom: 3px solid #3498db;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.export-date {
+    color: #7f8c8d;
+    font-size: 0.9em;
+    font-style: italic;
+    margin-bottom: 30px;
+}
+
+.question {
+    margin: 25px 0;
+    border: 2px solid #ecf0f1;
+    border-left: 5px solid #3498db;
+    border-radius: 8px;
+    padding: 20px;
+    background: #fafbfc;
+    page-break-inside: avoid;
+}
+
+.question-metadata {
+    background: #ecf0f1;
+    padding: 12px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    font-size: 0.95em;
+}
+
+.meta-row {
+    margin: 8px 0;
+}
+
+.meta-label {
+    font-weight: 600;
+    color: #2c3e50;
+    min-width: 120px;
+    display: inline-block;
+}
+
+.meta-value {
+    color: #555;
+}
+
+.question-text h3 {
+    margin: 0 0 15px 0;
+    font-size: 1.3em;
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.questiontext {
+    font-size: 1.05em;
+    color: #2c3e50;
+    line-height: 1.8;
+}
+
+.question-content {
+    margin: 20px 0;
+}
+
+li.correct-answer {
+    background-color: #f0fdf4;
+    font-weight: 600;
+}
+
+.correct-badge {
+    color: #27ae60;
+    font-size: 0.85em;
+    margin-left: 8px;
+    font-weight: bold;
+}
+
+.answer-key {
+    background: #f0fdf4;
+    border-left: 4px solid #27ae60;
+    padding: 8px 12px;
+    margin: 10px 0;
+    font-size: 0.95em;
+    border-radius: 3px;
+    color: #166534;
+}
+
+.answer-feedback {
+    background: #ecf9ff;
+    padding: 10px;
+    margin: 8px 0 0 0;
+    border-left: 3px solid #3498db;
+    border-radius: 2px;
+    font-size: 0.95em;
+    color: #0c4a6e;
+}
+
+.general-feedback {
+    background: #f0f9ff;
+    border: 1px solid #bae6fd;
+    border-left: 4px solid #0284c7;
+    padding: 15px;
+    margin: 20px 0 0 0;
+    border-radius: 4px;
+}
+
+.feedback-title {
+    color: #0c4a6e;
+    font-weight: 600;
+}
+
+.feedback-content {
+    background: white;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 3px;
+}
+  </style>
+</head>
+<body>
+  <div class="questions-container">
+    <h1>Exported Questions with Complete Solutions</h1>
+    <p class="export-date">Exported: 2024-01-15 14:30:00</p>
+
+    <!-- EXAMPLE 1: TRUE/FALSE QUESTION -->
+    <div class="question" id="q-1">
+      <div class="question-metadata">
+        <div class="meta-row">
+          <span class="meta-label">ID:</span>
+          <span class="meta-value">1</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-label">Name:</span>
+          <span class="meta-value">Moodle was created in 2002</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-label">Type:</span>
+          <span class="meta-value">truefalse</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-label">Default mark:</span>
+          <span class="meta-value">1</span>
+        </div>
+      </div>
+
+      <div class="question-text">
+        <h3>Moodle was created in 2002</h3>
+        <div class="questiontext">Moodle is a learning platform designed to provide educators, administrators and learners with a single robust, secure and integrated system to create personalised learning environments.</div>
+      </div>
+
+      <div class="question-content truefalse">
+        <ul class="truefalse">
+          <li class="correct-answer"><input name="quest_1" type="radio" value="True" />True <span class="correct-badge">✔</span></li>
+          <li><input name="quest_1" type="radio" value="False" />False</li>
+        </ul>
+        <div class="answer-feedback">
+          <strong>True:</strong> Moodle was officially released on July 20, 2002 by Martin Dougiamas.
+        </div>
+      </div>
+
+      <div class="general-feedback">
+        <strong class="feedback-title">General feedback:</strong>
+        <div class="feedback-content">
+          Moodle stands for Modular Object-Oriented Dynamic Learning Environment. It is the most popular learning management system in the world.
+        </div>
+      </div>
+    </div>
+
+    <!-- EXAMPLE 2: MULTIPLE CHOICE QUESTION -->
+    <div class="question" id="q-2">
+      <div class="question-metadata">
+        <div class="meta-row">
+          <span class="meta-label">ID:</span>
+          <span class="meta-value">2</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-label">Name:</span>
+          <span class="meta-value">Which of the following are programming languages?</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-label">Type:</span>
+          <span class="meta-value">multichoice</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-label">Default mark:</span>
+          <span class="meta-value">2</span>
+        </div>
+      </div>
+
+      <div class="question-text">
+        <h3>Which of the following are programming languages?</h3>
+        <div class="questiontext">Select all the correct answers.</div>
+      </div>
+
+      <div class="question-content multichoice">
+        <p class="question-info">Multiple answers allowed</p>
+        <ul class="multichoice">
+          <li class="correct-answer"><input name="quest_2" type="checkbox" value="Python" />Python <span class="correct-badge">✔</span></li>
+          <li><input name="quest_2" type="checkbox" value="HTML" />HTML</li>
+          <li class="correct-answer"><input name="quest_2" type="checkbox" value="JavaScript" />JavaScript <span class="correct-badge">✔</span></li>
+          <li><input name="quest_2" type="checkbox" value="MySQL" />MySQL</li>
+        </ul>
+        <div class="answer-feedback">
+          <strong>Python:</strong> Python is a high-level, interpreted programming language.
+        </div>
+        <div class="answer-feedback">
+          <strong>JavaScript:</strong> JavaScript is the primary language for interactive web pages.
+        </div>
+      </div>
+
+      <div class="general-feedback">
+        <strong class="feedback-title">General feedback:</strong>
+        <div class="feedback-content">
+          While HTML, CSS and SQL are important technologies, they are not programming languages in the traditional sense. Python and JavaScript are both powerful programming languages.
+        </div>
+      </div>
+    </div>
+
+    <!-- EXAMPLE 3: SHORT ANSWER QUESTION -->
+    <div class="question" id="q-3">
+      <div class="question-metadata">
+        <div class="meta-row">
+          <span class="meta-label">ID:</span>
+          <span class="meta-value">3</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-label">Name:</span>
+          <span class="meta-value">What is the capital of France?</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-label">Type:</span>
+          <span class="meta-value">shortanswer</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-label">Default mark:</span>
+          <span class="meta-value">1</span>
+        </div>
+      </div>
+
+      <div class="question-text">
+        <h3>What is the capital of France?</h3>
+        <div class="questiontext">Type your answer in the field below.</div>
+      </div>
+
+      <div class="question-content shortanswer">
+        <ul class="shortanswer">
+          <li><input id="quest_3" name="quest_3" type="text" /></li>
+        </ul>
+        <p class="answer-key">✔ Correct answers: <strong>Paris</strong></p>
+      </div>
+
+      <div class="general-feedback">
+        <strong class="feedback-title">General feedback:</strong>
+        <div class="feedback-content">
+          Paris is the capital and most populous city of France, known as the "City of Light".
+        </div>
+      </div>
+    </div>
+
+    <!-- EXAMPLE 4: MATCHING QUESTION -->
+    <div class="question" id="q-4">
+      <div class="question-metadata">
+        <div class="meta-row">
+          <span class="meta-label">ID:</span>
+          <span class="meta-value">4</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-label">Name:</span>
+          <span class="meta-value">Match countries with capitals</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-label">Type:</span>
+          <span class="meta-value">match</span>
+        </div>
+        <div class="meta-row">
+          <span class="meta-label">Default mark:</span>
+          <span class="meta-value">3</span>
+        </div>
+      </div>
+
+      <div class="question-text">
+        <h3>Match countries with capitals</h3>
+        <div class="questiontext">Drag each country to its capital city.</div>
+      </div>
+
+      <div class="question-content match">
+        <ul class="match">
+          <li>Spain</li>
+          <select id="quest_4_0" name="quest_4_0">
+            <option value="Madrid">Madrid</option>
+            <option value="Rome">Rome</option>
+            <option value="Berlin">Berlin</option>
+          </select>
+          <p class="answer-key match-answer">✔ Answer: <strong>Madrid</strong></p>
+
+          <li>Italy</li>
+          <select id="quest_4_1" name="quest_4_1">
+            <option value="Madrid">Madrid</option>
+            <option value="Rome">Rome</option>
+            <option value="Berlin">Berlin</option>
+          </select>
+          <p class="answer-key match-answer">✔ Answer: <strong>Rome</strong></p>
+
+          <li>Germany</li>
+          <select id="quest_4_2" name="quest_4_2">
+            <option value="Madrid">Madrid</option>
+            <option value="Rome">Rome</option>
+            <option value="Berlin">Berlin</option>
+          </select>
+          <p class="answer-key match-answer">✔ Answer: <strong>Berlin</strong></p>
+        </ul>
+      </div>
+
+      <div class="general-feedback">
+        <strong class="feedback-title">General feedback:</strong>
+        <div class="feedback-content">
+          All three are major European cities and capital cities of their respective countries.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
