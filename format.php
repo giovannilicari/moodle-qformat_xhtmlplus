@@ -55,18 +55,18 @@ class qformat_xhtmlplus extends qformat_default {
         $output .= "  </div>\n";
 
         $output .= "  <div class=\"meta-row\">\n";
-        $output .= "    <span class=\"meta-label\">" . get_string('name', 'qformat_xhtmlplus') . ":</span>\n";
+        $output .= "    <span class=\"meta-label\">" . get_string('name','qformat_xhtmlplus') . ":</span>\n";
         $output .= "    <span class=\"meta-value\">" . s($question->name) . "</span>\n";
         $output .= "  </div>\n";
 
         $output .= "  <div class=\"meta-row\">\n";
-        $output .= "    <span class=\"meta-label\">" . get_string('type', 'qformat_xhtmlplus') . ":</span>\n";
-        $output .= "    <span class=\"meta-value\">" . s($question->type) . "</span>\n";
+        $output .= "    <span class=\"meta-label\">" . get_string('type','qformat_xhtmlplus') . ":</span>\n";
+        $output .= "    <span class=\"meta-value\">" . s($question->qtype) . "</span>\n";
         $output .= "  </div>\n";
 
         if (isset($question->defaultmark) && $question->defaultmark > 0) {
             $output .= "  <div class=\"meta-row\">\n";
-            $output .= "    <span class=\"meta-label\">" . get_string('defaultmark', 'qformat_xhtmlplus') . ":</span>\n";
+            $output .= "    <span class=\"meta-label\">" . get_string('defaultmark','qformat_xhtmlplus') . ":</span>\n";
             $output .= "    <span class=\"meta-value\">" . s($question->defaultmark) . "</span>\n";
             $output .= "  </div>\n";
         }
@@ -387,7 +387,7 @@ class qformat_xhtmlplus extends qformat_default {
                     ($question->options->responserequired ? get_string('yes') : get_string('no')) . "</p>\n";
             }
             if (isset($question->options->attachments)) {
-                $expout .= "    <p><strong>" . get_string('attachments', 'qtype_essay') . ":</strong> " .
+                $expout .= "    <p><strong>" . get_string('attachments', 'qformat_xhtmlplus') . ":</strong> " .
                     s($question->options->attachments) . "</p>\n";
             }
             $expout .= "  </div>\n";
