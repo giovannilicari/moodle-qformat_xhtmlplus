@@ -48,29 +48,29 @@ class qformat_xhtmlplus extends qformat_default {
      */
     protected function render_metadata($question) {
         $output = "<div class=\"question-metadata\">\n";
-        
+
         $output .= "  <div class=\"meta-row\">\n";
         $output .= "    <span class=\"meta-label\">ID:</span>\n";
         $output .= "    <span class=\"meta-value\">" . s($question->id) . "</span>\n";
         $output .= "  </div>\n";
-        
+
         $output .= "  <div class=\"meta-row\">\n";
-        $output .= "    <span class=\"meta-label\">" . get_string('name') . ":</span>\n";
+        $output .= "    <span class=\"meta-label\">" . get_string('name', 'qformat_xhtmlplus') . ":</span>\n";
         $output .= "    <span class=\"meta-value\">" . s($question->name) . "</span>\n";
         $output .= "  </div>\n";
-        
+
         $output .= "  <div class=\"meta-row\">\n";
-        $output .= "    <span class=\"meta-label\">" . get_string('type') . ":</span>\n";
-        $output .= "    <span class=\"meta-value\">" . s($question->qtype) . "</span>\n";
+        $output .= "    <span class=\"meta-label\">" . get_string('type', 'qformat_xhtmlplus') . ":</span>\n";
+        $output .= "    <span class=\"meta-value\">" . s($question->type) . "</span>\n";
         $output .= "  </div>\n";
-        
+
         if (isset($question->defaultmark) && $question->defaultmark > 0) {
             $output .= "  <div class=\"meta-row\">\n";
-            $output .= "    <span class=\"meta-label\">" . get_string('defaultmark', 'question') . ":</span>\n";
+            $output .= "    <span class=\"meta-label\">" . get_string('defaultmark', 'qformat_xhtmlplus') . ":</span>\n";
             $output .= "    <span class=\"meta-value\">" . s($question->defaultmark) . "</span>\n";
             $output .= "  </div>\n";
         }
-        
+
         $output .= "</div>\n";
         return $output;
     }
@@ -80,7 +80,7 @@ class qformat_xhtmlplus extends qformat_default {
      */
     protected function get_question_tags($question) {
         global $DB;
-        $tags = $DB->get_records('tag', 
+        $tags = $DB->get_records('tag',
             array('name' => $question->name), 'id', 'name');
         return $tags;
     }
@@ -92,11 +92,11 @@ class qformat_xhtmlplus extends qformat_default {
         if (empty($question->generalfeedback)) {
             return '';
         }
-        
+
         $text = question_rewrite_question_preview_urls($question->generalfeedback, $question->id,
                 $question->contextid, 'question', 'generalfeedback', $question->id,
                 $question->contextid, 'qformat_xhtmlplus');
-        
+
         $output = "<div class=\"general-feedback\">\n";
         $output .= "  <strong class=\"feedback-title\">" . get_string('generalfeedback', 'question') . ":</strong>\n";
         $output .= "  <div class=\"feedback-content\">\n";
@@ -124,7 +124,7 @@ class qformat_xhtmlplus extends qformat_default {
         $text = question_rewrite_question_preview_urls($question->questiontext, $id,
                 $question->contextid, 'question', 'questiontext', $id,
                 $question->contextid, 'qformat_xhtmlplus');
-        $expout .= '<div class="question-text">\n';
+        $expout .= '<div class="question-text">';
         $expout .= "  <h3>{$question->name}</h3>\n";
         $expout .= '  <div class="questiontext">' . format_text($text,
                 $question->questiontextformat, array('noclean' => true)) . "</div>\n";
@@ -226,18 +226,18 @@ class qformat_xhtmlplus extends qformat_default {
     protected function write_multichoice($question) {
         $id = $question->id;
         $expout = "<div class=\"question-content multichoice\">\n";
-        
+
         if (!$question->options->single) {
-            $expout .= "  <p class=\"question-info\">" . get_string('multipleanswers', 'qtype_multichoice') . "</p>\n";
+            $expout .= "  <p class=\"question-info\">" . get_string('multipleanswers', 'qformat_xhtmlplus') . "</p>\n";
         }
-        
+
         $expout .= "<ul class=\"multichoice\">\n";
         foreach ($question->options->answers as $answer) {
             $answertext = $this->repchar($answer->answer);
             $is_correct = ($answer->fraction > 0);
             $li_class = $is_correct ? ' class="correct-answer"' : '';
             $badge = $is_correct ? ' <span class="correct-badge">✔</span>' : '';
-            
+
             if ($question->options->single) {
                 $expout .= "  <li{$li_class}><input name=\"quest_{$id}\" type=\"radio\" value=\""
                         . s($answertext) . "\" />{$answertext}{$badge}</li>\n";
@@ -245,7 +245,7 @@ class qformat_xhtmlplus extends qformat_default {
                 $expout .= "  <li{$li_class}><input name=\"quest_{$id}\" type=\"checkbox\" value=\""
                         . s($answertext) . "\" />{$answertext}{$badge}</li>\n";
             }
-            
+
             if (!empty($answer->feedback)) {
                 $expout .= "  <li class=\"answer-feedback\">" . format_text($answer->feedback, $answer->feedbackformat, array('noclean' => true)) . "</li>\n";
             }
@@ -267,7 +267,7 @@ class qformat_xhtmlplus extends qformat_default {
         $expout .= html_writer::empty_tag('input', array('id' => "quest_{$id}", 'name' => "quest_{$id}", 'type' => 'text'));
         $expout .= html_writer::end_tag('li');
         $expout .= html_writer::end_tag('ul');
-        
+
         $accepted_sa = [];
         $feedback_list = [];
         foreach ($question->options->answers as $answer) {
@@ -278,15 +278,15 @@ class qformat_xhtmlplus extends qformat_default {
                 }
             }
         }
-        
+
         if (!empty($accepted_sa)) {
             $expout .= '<p class="answer-key">✔ ' . get_string('correctanswers', 'qtype_shortanswer') . ': ' . implode(' &nbsp;|&nbsp; ', $accepted_sa) . '</p>' . "\n";
         }
-        
+
         if (!empty($feedback_list)) {
             $expout .= implode("\n", $feedback_list);
         }
-        
+
         $expout .= "</div>\n";
         return $expout;
     }
@@ -303,7 +303,7 @@ class qformat_xhtmlplus extends qformat_default {
         $expout .= html_writer::empty_tag('input', array('id' => "quest_{$id}", 'name' => "quest_{$id}", 'type' => 'text'));
         $expout .= html_writer::end_tag('li');
         $expout .= html_writer::end_tag('ul');
-        
+
         $accepted_num = [];
         $feedback_list = [];
         foreach ($question->options->answers as $answer) {
@@ -316,15 +316,15 @@ class qformat_xhtmlplus extends qformat_default {
                 }
             }
         }
-        
+
         if (!empty($accepted_num)) {
             $expout .= '<p class="answer-key">✔ ' . get_string('answer', 'question') . ': ' . implode(' &nbsp;|&nbsp; ', $accepted_num) . '</p>' . "\n";
         }
-        
+
         if (!empty($feedback_list)) {
             $expout .= implode("\n", $feedback_list);
         }
-        
+
         $expout .= "</div>\n";
         return $expout;
     }
@@ -375,24 +375,24 @@ class qformat_xhtmlplus extends qformat_default {
      */
     protected function write_essay($question) {
         $expout = "<div class=\"question-content essay\">\n";
-        
+
         if (isset($question->options)) {
             $expout .= "  <div class=\"essay-settings\">\n";
             if (isset($question->options->responseformat)) {
-                $expout .= "    <p><strong>" . get_string('responseformat', 'qtype_essay') . ":</strong> " . 
+                $expout .= "    <p><strong>" . get_string('responseformat', 'qtype_essay') . ":</strong> " .
                     s($question->options->responseformat) . "</p>\n";
             }
             if (isset($question->options->responserequired)) {
-                $expout .= "    <p><strong>" . get_string('responserequired', 'qtype_essay') . ":</strong> " . 
+                $expout .= "    <p><strong>" . get_string('responserequired', 'qtype_essay') . ":</strong> " .
                     ($question->options->responserequired ? get_string('yes') : get_string('no')) . "</p>\n";
             }
             if (isset($question->options->attachments)) {
-                $expout .= "    <p><strong>" . get_string('attachments', 'qtype_essay') . ":</strong> " . 
+                $expout .= "    <p><strong>" . get_string('attachments', 'qtype_essay') . ":</strong> " .
                     s($question->options->attachments) . "</p>\n";
             }
             $expout .= "  </div>\n";
         }
-        
+
         $expout .= "</div>\n";
         return $expout;
     }
@@ -402,7 +402,7 @@ class qformat_xhtmlplus extends qformat_default {
      */
     protected function write_multianswer($question) {
         $expout = "<div class=\"question-content multianswer\">\n";
-        
+
         if (isset($question->options->questions) && is_array($question->options->questions)) {
             $expout .= "  <div class=\"multianswer-questions\">\n";
             foreach ($question->options->questions as $subq) {
@@ -423,7 +423,7 @@ class qformat_xhtmlplus extends qformat_default {
             }
             $expout .= "  </div>\n";
         }
-        
+
         $expout .= "</div>\n";
         return $expout;
     }
@@ -433,7 +433,7 @@ class qformat_xhtmlplus extends qformat_default {
      */
     protected function write_calculated($question) {
         $expout = "<div class=\"question-content calculated\">\n";
-        
+
         if (isset($question->options->answers)) {
             $expout .= "  <div class=\"answers\">\n";
             foreach ($question->options->answers as $answer) {
@@ -448,7 +448,7 @@ class qformat_xhtmlplus extends qformat_default {
             }
             $expout .= "  </div>\n";
         }
-        
+
         $expout .= "</div>\n";
         return $expout;
     }
@@ -459,7 +459,7 @@ class qformat_xhtmlplus extends qformat_default {
     protected function write_dragdrop($question) {
         $expout = "<div class=\"question-content dragdrop\">\n";
         $expout .= "  <p class=\"question-info\">" . get_string($question->qtype, 'qtype_' . $question->qtype) . "</p>\n";
-        
+
         if (isset($question->options)) {
             if (isset($question->options->answers)) {
                 $expout .= "  <div class=\"answers\">\n";
@@ -469,7 +469,7 @@ class qformat_xhtmlplus extends qformat_default {
                 $expout .= "  </div>\n";
             }
         }
-        
+
         $expout .= "</div>\n";
         return $expout;
     }
@@ -480,7 +480,7 @@ class qformat_xhtmlplus extends qformat_default {
     protected function write_gapselect($question) {
         $expout = "<div class=\"question-content gapselect\">\n";
         $expout .= "  <p class=\"question-info\">" . get_string('gapselect', 'qtype_gapselect') . "</p>\n";
-        
+
         if (isset($question->options->answers)) {
             $expout .= "  <div class=\"answers\">\n";
             foreach ($question->options->answers as $answer) {
@@ -490,7 +490,7 @@ class qformat_xhtmlplus extends qformat_default {
             }
             $expout .= "  </div>\n";
         }
-        
+
         $expout .= "</div>\n";
         return $expout;
     }

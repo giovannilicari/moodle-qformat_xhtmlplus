@@ -22,12 +22,15 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$string['pluginname'] = 'XHTML+ format with complete solutions';
+$string['pluginname'] = 'Format XHTML+ with complete solutions';
 $string['pluginname_help'] = 'XHTML+ format exports all questions with complete metadata including correct answers, feedback, scores, tags, and question types for all supported question types.';
 $string['pluginname_link'] = 'qformat/xhtmlplus';
 $string['privacy:metadata'] = 'The XHTML+ question format plugin does not store any personal data.';
 $string['exportnotimplemented'] = 'Export of question type "{$a}" is not yet fully implemented.';
+$string['name'] = 'Name';
 $string['type'] = 'Type';
 $string['correctanswers'] = 'Correct answers';
 $string['exportedquestions'] = 'Exported Questions with Complete Solutions';
-
+$string['defaultmark'] = 'Default mark';
+$string['multipleanswers'] = 'Multiple Answers';
+$string['attachments'] = 'Attachments';
